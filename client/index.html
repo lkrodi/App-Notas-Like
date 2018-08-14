@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Note App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="../Assets/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/css/bootstrap.min.css" />-->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/Assets/css/style.css" />
+</head>
+<body>
+
+    <div id="page-loader">
+        <h6 class="text-center cargando">Cargando App...</h6>
+        <span class="preloader-interior"></span>
+    </div>
+
+    <div id="MainPrincipalContainer">
+        <div class="container">
+
+            <div id="TituloNotasContainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <header id="header">
+                                <h2 class="text-center negrita">Notas</h2><hr>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="NavegacionNotasContainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-xs-3">
+                            <label id="spEventoNota" hidden="hidden">1</label>
+                            <button class="btn btn-primary" id="btnCrearNota">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i> CREAR NOTA
+                            </button>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-xs-4">
+                            <div class="alert alert-success" id="mensajeNotify" role="alert" style="display: none;"></div>
+                            </div>
+                        <div class="col-sm-5 col-md-5 col-xs-5">
+                            <select name="filtroInicio" id="filtroInicio" class="form-control col-sm-6 pull-right">
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div id="NuevaNotaContainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6 latata">
+                            <div class="form-group">
+                                <label id="spIdNotaPrincipal" hidden="hidden"></label>
+                                <label for="tituloNota" class="negrita">Titulo de la Nota</label>
+                                <input type="text" class="form-control" id="tituloNota" placeholder="Titulo de la Nota">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6"></div>
+                    </div>
+                    <div class="row">  
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <div class="form-group">
+                                <label for="categoria" class="negrita">Categoría</label>
+                                <select id="categoria" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <div class="form-group">
+                                <label for="descripcionNota" class="negrita">Descripción</label>
+                                <textarea class="form-control" id="descripcionNota" rows="8" cols="65" placeholder="Descripcion"></textarea>
+                            </div>                      
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <div class="form-group">
+                                <i class="fa fa-heart white-text" aria-hidden="true" id="iFavorito" title="Marcar como Favorito"> </i>
+                                <button class="btn btn-info" id="btnGuardarNota">
+                                    <i class="fa fa-save" aria-hidden="true"></i> Guardar
+                                </button>
+                                <button class="btn btn-warning" id="btnEliminarNota">
+                                    <i class="fa fa-delete" aria-hidden="true"></i> Eliminar
+                                </button>                        
+                            </div> 
+                        </div>
+                    </div> 
+                </div>           
+            </div>
+
+            <div id="ListaNotasContainer">
+                <div class="container">
+                    <div id="ListasCompletas">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <!--<script src="../Assets/js/jquery.min.js"></script>
+    <script src="../Assets/js/bootstrap.min.js"></script>-->
+
+    <!--<script src="/Assets/js/jquery.min.js"></script>
+    <script src="/Assets/js/bootstrap.min.js"></script>-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="Assets/js/switAlert.min.js"></script>
+    <script src="Assets/js/principal.js"></script>
+    <script src="Assets/js/reutilizablesFunctions.js"></script>
+    <script src="Assets/js/validators.js"></script>
+</body>
+</html>
