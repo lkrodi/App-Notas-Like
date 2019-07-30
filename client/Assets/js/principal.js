@@ -1,6 +1,6 @@
 var arrayNotas = []
 var arrayCategorias = []
-var server = 'http://10.10.10.10.:4567'
+var server = 'http://10.0.2.15:4567'
 var optionsSocket = {'forceNew': true}
 var socketPrincipal = io.connect(server, optionsSocket)
 

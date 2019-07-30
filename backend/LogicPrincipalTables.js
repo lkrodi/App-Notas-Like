@@ -6,7 +6,7 @@ const serveStatic = require('serve-static');
 const express = require('express');
 const mongo = require('mongodb').MongoClient;
 const assert = require('assert');
-const Capadatos = require('../Backend/accesoData');
+const Capadatos = require('../backend/accesoData');
 //#endregion modulos npm y variables
 
 
@@ -176,7 +176,7 @@ function EliminarNota(socket) {
 
 function SeleccionarCategorias(socket) {
     socket.on('selectCategorias', (data, callback) => {
-        Capadatos.EjecutarProcesoMongoDB(3, 'Categoria', data, (resp) => {
+        Capadatos.EjecutarProcesoMongoDB(3, 'Categorias', data, (resp) => {
             var respuesta = JSON.parse(resp);
             if (respuesta.hasOwnProperty('Error')) {
                 callback(stringify({Error: respuesta.Error}));
@@ -231,7 +231,7 @@ function InsertarCategoria(socket) {
     });
 }
 
-//endregion Operaciones Categorias
+//#endregion Operaciones Categorias
 
 
 //#region module exports
