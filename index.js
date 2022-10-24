@@ -15,7 +15,7 @@ var scData = null;
 app.use(express.static('client'));
 
 server.listen(4567, function () {
-    console.log('Servidor Node corriendo en el Puerto: 4567 \n');
+    console.log('Test... Node corriendo en el Puerto: 4567 \n');
 });
 
 io.on('connection', (socket) => {
